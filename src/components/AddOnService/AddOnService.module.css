@@ -1,0 +1,17 @@
+.addOn {
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.addOnTitle {
+  font-weight: 700;
+  color: var(--color-main);
+}
+
+.addOnDescription {
+  color: var(--color-text-inactive-dark);
+}
+
+.cost {
+  color: blue;
+}

@@ -1,0 +1,20 @@
+.stepIndexMarker {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--color-white);
+  border-radius: 50%;
+  color: var(--color-white);
+}
+
+.stepText {
+  color: var(--color-text-inactive-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+.stepTitle {
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 0.95rem;
+}

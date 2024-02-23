@@ -1,0 +1,6 @@
+.stepList {
+  background: url(../../../public/background_image.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+}
