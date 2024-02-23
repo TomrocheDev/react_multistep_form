@@ -1,0 +1,10 @@
+.totalTitle {
+  font-size: 0.9rem;
+  color: var(--color-text-inactive-dark);
+}
+
+.totalPrice {
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: rgb(59, 59, 223);
+}

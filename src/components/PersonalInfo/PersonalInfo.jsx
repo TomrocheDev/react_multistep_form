@@ -2,6 +2,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Header from "../Header/Header";
 import { useState } from "react";
+import NavigationButtons from "../NavigationButtons/NavigationButtons";
 
 export default function PersonalInfo({ state, dispatch }) {
   function updateState() {
@@ -12,6 +13,7 @@ export default function PersonalInfo({ state, dispatch }) {
       dispatch({ type: "incrementStep" });
     } else {
       alert("Please fill in all the fields");
+      return false;
     }
   }
 
@@ -63,12 +65,7 @@ export default function PersonalInfo({ state, dispatch }) {
           />
         </div>
       </div>
-      <div className="d-flex justify-content-between mt-4">
-        <div></div>
-        <Button className="mainButton w-25" onClick={updateState}>
-          Next Step
-        </Button>
-      </div>
+      <NavigationButtons dispatch={dispatch} isFirst={true} />
     </div>
   );
 }

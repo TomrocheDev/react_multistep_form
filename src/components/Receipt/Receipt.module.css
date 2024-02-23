@@ -1,0 +1,30 @@
+.receipt {
+  background-color: var(--background-color);
+}
+
+.plan,
+.planPrice {
+  font-weight: 600;
+  color: var(--color-main);
+}
+
+.cap {
+  text-transform: capitalize;
+}
+
+.change {
+  font-size: 0.8rem;
+  cursor: pointer;
+  text-decoration: underline;
+  color: var(--color-text-inactive-dark);
+}
+
+.serviceName {
+  color: var(--color-text-inactive-dark);
+  font-weight: 400;
+  font-size: 0.9rem;
+}
+
+.serviceCost {
+  font-weight: 500;
+}

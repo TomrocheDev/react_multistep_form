@@ -1,3 +1,4 @@
+import { useReducer } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import AppContainer from "./components/AppContainer/AppContainer";
 import StepList from "./components/StepList/StepList";
@@ -6,7 +7,12 @@ import Form from "./components/Form/Form";
 import PersonalInfo from "./components/PersonalInfo/PersonalInfo";
 import Plan from "./components/Plan/Plan";
 import AddOns from "./components/AddOns/AddOns";
-import { useReducer } from "react";
+import Header from "./components/Header/Header";
+import Summary from "./components/Summary/Summary";
+import Receipt from "./components/Receipt/Receipt";
+import PlanTotal from "./components/PlanTotal/PlanTotal";
+import NavigationButtons from "./components/NavigationButtons/NavigationButtons";
+import End from "./components/End/End";
 
 const stepListInfo = [
   { listIndex: 1, description: "your info" },
@@ -25,6 +31,8 @@ const initialFormData = {
 
 const reducer = (state, action) => {
   switch (action.type) {
+    case "setStepManually":
+      return { ...state, currentStep: action.payload };
     case "incrementStep":
       return { ...state, currentStep: state.currentStep + 1 };
     case "decrementStep":
@@ -47,7 +55,6 @@ const reducer = (state, action) => {
       const serviceExists = state.services.some(
         (service) => service.service === action.payload.service
       );
-
       if (!serviceExists) {
         return { ...state, services: [...state.services, action.payload] };
       }
@@ -58,6 +65,8 @@ const reducer = (state, action) => {
           (fService) => fService !== action.payload
         ),
       };
+    case "reset":
+      return { ...initialFormData };
     default:
       return state;
   }
@@ -88,6 +97,21 @@ function App() {
           {state.currentStep === 3 && (
             <AddOns state={state} dispatch={dispatch} />
           )}
+          {state.currentStep === 4 && (
+            <Summary>
+              <Header
+                headerData={{
+                  title: "Finishing up",
+                  description:
+                    "Please double check everything before confirming.",
+                }}
+              />
+              <Receipt state={state} dispatch={dispatch} />
+              <PlanTotal state={state} dispatch={dispatch} />
+              <NavigationButtons dispatch={dispatch} isFirst={false} />
+            </Summary>
+          )}
+          {state.currentStep === 5 && <End dispatch={dispatch} />}
         </Form>
       </AppContainer>
     </div>

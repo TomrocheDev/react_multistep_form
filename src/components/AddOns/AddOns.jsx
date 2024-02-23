@@ -2,6 +2,7 @@ import Header from "../Header/Header";
 import AddOnsContainer from "../AddOnsContainer/AddOnsContainer";
 import AddOnService from "../AddOnService/AddOnService";
 import { Button } from "react-bootstrap";
+import NavigationButtons from "../NavigationButtons/NavigationButtons";
 
 const services = [
   {
@@ -40,20 +41,7 @@ export default function AddOns({ state, dispatch }) {
           />
         ))}
       </AddOnsContainer>
-      <div className="d-flex justify-content-between mt-5">
-        <Button
-          className="tertiaryButton"
-          onClick={() => dispatch({ type: "decrementStep" })}
-        >
-          Go Back
-        </Button>
-        <Button
-          className="mainButton"
-          onClick={() => dispatch({ type: "incrementStep" })}
-        >
-          Next Step
-        </Button>
-      </div>
+      <NavigationButtons dispatch={dispatch} isFirst={false} />
     </div>
   );
 }
