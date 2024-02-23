@@ -16,7 +16,7 @@ const stepListInfo = [
 ];
 
 const initialFormData = {
-  currentStep: 3,
+  currentStep: 1,
   paymentPeriod: "monthly",
   currentPlan: "Arcade",
   price: 9,
